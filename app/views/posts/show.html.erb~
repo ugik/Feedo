@@ -1,0 +1,23 @@
+<% if params[:delay]!=nil %>
+	<META HTTP-EQUIV="REFRESH" CONTENT="<%= params[:delay] %>">
+<% end %>
+
+<table>
+	<tr>
+	<td>
+		<font size="6" face="ubuntu" color="blue">
+		<%= @post.user.first_name %> 
+                <%= @post.user.last_name %> - 
+		<% ampm = @post.created_at.strftime("%p").downcase %>
+                <%= @post.created_at.strftime("%B %d, %Y at %I:%M" + ampm) %> <small>(utc)</small>
+		</font>
+	</td></tr>
+	<tr>
+	<td>
+		<font size="15" face="ubuntu" color="purple">
+		<%= @post.body %>
+		</font>
+	</td></tr>
+</table>
+
+

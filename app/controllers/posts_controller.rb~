@@ -1,0 +1,6 @@
+class PostsController < ApplicationController
+  def show
+	@post = Post.first(:order => "DATE(created_at) DESC")
+  end
+
+end

@@ -1,5 +1,6 @@
 Feedo::Application.routes.draw do
   get "posts/show"
+  get "posts/show/delay:"
 
   root :to => 'posts#show'
 

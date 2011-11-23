@@ -1,0 +1,8 @@
+class User < ActiveRecord::Base
+  self.abstract_class = true
+  set_table_name "users"
+  establish_connection("remote_replica")
+
+  has_many :posts
+
+end
