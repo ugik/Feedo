@@ -9,13 +9,14 @@
 end %>
 
 <% if params[:random]!=nil
-	@post.random
+	@post = Post.random
 end %>
 
 <body bgcolor="#0A2A12"> 
 <table>
 	<tr>
 	<td>
+		<img src="https://s3.amazonaws.com/production.keas.com/avatars/<%= @post.user.id.to_s %>/large.jpg" /> 
 		<font size="6" face="<%= @font_name %>" color="grey">
 		<%= @post.user.first_name %> 
                 <%= @post.user.last_name %> - 
