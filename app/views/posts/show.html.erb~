@@ -8,10 +8,15 @@
 		@font_name = 'ubuntu'		# default font
 end %>
 
+<% if params[:random]!=nil
+	@post.random
+end %>
+
+<body bgcolor="#0A2A12"> 
 <table>
 	<tr>
 	<td>
-		<font size="6" face="<%= @font_name %>" color="blue">
+		<font size="6" face="<%= @font_name %>" color="grey">
 		<%= @post.user.first_name %> 
                 <%= @post.user.last_name %> - 
 		<% ampm = @post.created_at.strftime("%p").downcase %>
@@ -20,12 +25,11 @@ end %>
 	</td></tr>
 	<tr>
 	<td>
-		<font size="13" face="<%= @font_name %>" color="purple">
+		<font size="13" face="<%= @font_name %>" color="white">
 		<%= @post.body %>
 		</font>
 	</td></tr>
 </table>
 
 
-<%= @font_name %>
 
