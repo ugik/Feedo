@@ -20,15 +20,15 @@ end %>
 <table>
 	<tr>
 	<td>
-		<% if @post.user.id!=nil %>
+		<% if @post.user!=nil and @post.user.id!=nil %>
 			<img src="https://s3.amazonaws.com/production.keas.com/avatars/<%= @post.user.id.to_s %>/large.jpg" /> 
+			<font size="6" face="<%= @font_name %>" color="grey">
+			<%= @post.user.first_name %> 
+	                <%= @post.user.last_name %> - 
+			<% ampm = @post.created_at.strftime("%p").downcase %>
+	                <%= @post.created_at.strftime("%B %d, %Y at %I:%M" + ampm) %> <small>(utc)</small>
+			</font>
 		<% end %>
-		<font size="6" face="<%= @font_name %>" color="grey">
-		<%= @post.user.first_name %> 
-                <%= @post.user.last_name %> - 
-		<% ampm = @post.created_at.strftime("%p").downcase %>
-                <%= @post.created_at.strftime("%B %d, %Y at %I:%M" + ampm) %> <small>(utc)</small>
-		</font>
 	</td></tr>
 	<tr>
 	<td>
