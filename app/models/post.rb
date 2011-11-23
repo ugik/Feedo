@@ -12,12 +12,21 @@ class Post < ActiveRecord::Base
     :pool => "5"
 )
 
+  scope :image, where("photo_file_size>0")
   belongs_to :user
 
   def self.random
-	if (c = count) != 0
-	    find(:first, :offset =>rand(c))
+     if (c = count) != 0
+        find(:first, :offset =>rand(c))
+     end
+  end
+
+  def self.random_image
+	if (c = image.count) != 0
+	    image.find(:first, :offset =>rand(c))
         end
   end
 
 end
+
+
