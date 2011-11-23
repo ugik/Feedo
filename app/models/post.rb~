@@ -7,7 +7,8 @@ class Post < ActiveRecord::Base
 
   def self.random
 	if (c = count) != 0
-	find(:first, :offset =>rand(c))
-  end
+	    find(:first, :offset =>rand(c))
+        end
+end
 
 end
