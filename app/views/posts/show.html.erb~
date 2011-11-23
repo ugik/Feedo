@@ -2,10 +2,16 @@
 	<META HTTP-EQUIV="REFRESH" CONTENT="<%= params[:delay] %>">
 <% end %>
 
+<% if params[:font_name]!=nil 
+		@font_name = params[:font_name]
+	else
+		@font_name = 'ubuntu'		# default font
+end %>
+
 <table>
 	<tr>
 	<td>
-		<font size="6" face="ubuntu" color="blue">
+		<font size="6" face="<%= @font_name %>" color="blue">
 		<%= @post.user.first_name %> 
                 <%= @post.user.last_name %> - 
 		<% ampm = @post.created_at.strftime("%p").downcase %>
@@ -14,10 +20,12 @@
 	</td></tr>
 	<tr>
 	<td>
-		<font size="15" face="ubuntu" color="purple">
+		<font size="13" face="<%= @font_name %>" color="purple">
 		<%= @post.body %>
 		</font>
 	</td></tr>
 </table>
 
+
+<%= @font_name %>
 
