@@ -21,7 +21,13 @@ end %>
 	<tr>
 	<td>
 		<% if @post.user!=nil and @post.user.id!=nil %>
-			<img src="https://s3.amazonaws.com/production.keas.com/avatars/<%= @post.user.id.to_s %>/large.jpg" /> 
+			<%   if @post.user.avatar_file_name!=nil and @post.user.avatar_file_name.index('.')!=nil
+					@ext = @post.user.avatar_file_name[@post.user.avatar_file_name.index('.')+1, 3]   # grab extension
+				else
+					@ext = ".jpg"
+				end
+			%>
+			<img src="https://s3.amazonaws.com/production.keas.com/avatars/<%= @post.user.id.to_s %>/large.<%= @ext %>" /> 
 			<font size="6" face="<%= @font_name %>" color="grey">
 			<%= @post.user.first_name %> 
 	                <%= @post.user.last_name %> - 

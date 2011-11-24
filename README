@@ -1,1 +1,13 @@
 Feedo, a Keas news feed reader.
+
+Optional parameters:
+	delay=n			(automatic refresh every {n} seconds)
+	random=1		(show random post)
+	random_image=1	(show random post with image)
+	font=name		(show font {name}, defaut:Ubuntu)
+
+Combine parameters:
+www.feedo.com?random=1&delay=20&font=arial
+www.feedo.com?random_image=1&delay=3
+
+
