@@ -21,7 +21,8 @@ end %>
 	<tr>
 	<td>
 		<% if @post.user!=nil and @post.user.id!=nil %>
-			<img src="https://s3.amazonaws.com/production.keas.com/avatars/<%= @post.user.id.to_s %>/large.jpg" /> 
+			<% @ext = get_ext(@post.user.avatar_file_name) %>
+			<img src="https://s3.amazonaws.com/production.keas.com/avatars/<%= @post.user.id.to_s %>/large.<%= @ext %>" /> 
 			<font size="6" face="<%= @font_name %>" color="grey">
 			<%= @post.user.first_name %> 
 	                <%= @post.user.last_name %> - 
