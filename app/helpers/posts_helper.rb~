@@ -8,3 +8,5 @@ def get_ext(file_name)
 	end
 	return @ext
 end
+
+end

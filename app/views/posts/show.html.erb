@@ -40,7 +40,9 @@ end %>
 	<% @ext = get_ext(@post.photo_file_name) %>
 	<tr>
 	<td>
-		<img src="https://s3.amazonaws.com/production.keas.com/photos/<%= @post.id.to_s %>/feed.<%= @ext %>" /> 
+		<% if @ext!=nil %>
+		  <img src="https://s3.amazonaws.com/production.keas.com/photos/<%= @post.id.to_s %>/feed.<%= @ext %>" /> 
+		<% end %>
 	</td>	
 	</tr>
 </table>
