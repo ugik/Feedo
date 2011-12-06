@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   respond_to :html, :json
 
   def index
+    # TODO - Reimplement this stuff
     if params[:delay] != nil
       # %meta{:content => params[:delay], "http-equiv" => "REFRESH"}/
     end
@@ -13,18 +14,17 @@ class PostsController < ApplicationController
     end
 
     if params[:random_image] != nil
-      @post = Post.random_image
+      # @post = Post.random_image
     end
 
     if params[:random] != nil
-      @post = Post.random
+      # @post = Post.random
     end
-    @post = Post.first(:order => "created_at DESC")
-    @post
+    @post = Post.where(:postable_type => "League").random
   end
 
   def show
-    @post = Post.random
+    @post = Post.where(:postable_type => "League").random
     render :partial => "post"
   end
 end
