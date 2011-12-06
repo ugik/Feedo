@@ -1,0 +1,20 @@
+.post_container
+  - @ext = get_ext(@post.user.avatar_file_name)
+  .image_container
+    %img.post_image{:src => "https://s3.amazonaws.com/production.keas.com/avatars/#{@post.user.id.to_s}/large.#{@ext}"}
+
+  .post_details
+    = @post.user.first_name
+    = @post.user.last_name
+
+    - ampm = @post.created_at.strftime("%p").downcase
+    = @post.created_at.strftime("%B %d, %Y at %I:%M" + ampm)
+    %small (utc)
+
+  %p
+  .post_body
+    = @post.body
+    %p
+      - @ext = get_ext(@post.photo_file_name)
+      - if @ext != nil
+        %img{:src => "https://s3.amazonaws.com/production.keas.com/photos/#{@post.id.to_s}/feed.#{@ext}"}

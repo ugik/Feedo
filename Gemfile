@@ -5,6 +5,8 @@ gem 'sqlite3'
 gem 'json'
 gem 'mysql2'
 gem 'therubyracer'
+gem 'haml'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,6 +20,12 @@ group :production do
   # gems specifically for Heroku go here
   gem 'pg'
   gem 'therubyracer-heroku'
+end
+
+group :development do
+  # for converting erb to haml
+  gem 'hpricot'
+  gem 'ruby_parser'
 end
 
 group :test do
