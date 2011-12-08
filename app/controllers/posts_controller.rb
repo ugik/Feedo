@@ -20,11 +20,15 @@ class PostsController < ApplicationController
     #if params[:random] != nil
     #  @post = Post.random
     #end
-    @post = Post.where(:postable_type => "League").random
+    get_post
   end
 
   def show
-    @post = Post.where(:postable_type => "League").random
+    get_post
     render :partial => "post"
+  end
+
+  def get_post
+    @post = Post.where(:postable_type => "League").random
   end
 end
