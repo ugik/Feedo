@@ -28,6 +28,9 @@ var feedo = {
           dataType: 'html',
           success: function(data) {
             feedo.display_new_post(data);
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            alert("Argh, Feedo error: " + textStatus + " " + errorThrown);
           }
         });
       }
