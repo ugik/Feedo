@@ -1,7 +1,11 @@
 .post_container
-  - @ext = get_ext(@post.user.avatar_file_name)
+  - @ext = get_ext(@post.user.try(:avatar_file_name))
+
   .image_container
-    %img.post_image{:src => "https://s3.amazonaws.com/production.keas.com/avatars/#{@post.user.id.to_s}/large.#{@ext}"}
+    - if @post.user.try(:avatar_file_name).present? and @ext.present?
+      %img.post_image{:src => "https://s3.amazonaws.com/production.keas.com/avatars/#{@post.user.id.to_s}/large.#{@ext}"}
+    - else
+      = image_tag "/images/default_avatar.gif", :class => "post_image"
 
   .post_details
     = @post.user.first_name
