@@ -30,7 +30,9 @@ var feedo = {
             feedo.display_new_post(data);
           },
           error: function(jqXHR, textStatus, errorThrown) {
-            alert("Argh, Feedo error: " + textStatus + " " + errorThrown);
+            feedo.ready_for_next_post = true;
+            clearInterval(rotate_post);
+            feedo.get_new_post();
           }
         });
       }
